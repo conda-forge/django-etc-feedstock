@@ -3,18 +3,18 @@ schema_version: 1
 
 context:
   name: django-etc
-  version: "1.4.0"
+  version: "1.5.0"
 
 package:
   name: ${{ name|lower }}
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/django-etc-${{ version }}.tar.gz
-  sha256: fa7dbcdba5d0dd3b42eac54463fe24a9e1202a1492ecbf50ed0bc1555074af8f
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | replace('-', '_') }}-${{ version }}.tar.gz
+  sha256: 733fc603be83a184fbc2b0bd0af2d866dce44308eb4383435963ffd23f6ba3ab
 
 build:
-  number: 2
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
